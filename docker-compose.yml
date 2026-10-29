@@ -3,7 +3,7 @@ version: '3.8'
 services:
   backend:
     build:
-      context: ./backend_files
+      context: ./backend
     ports:
       - "7860:7860"
     networks:
@@ -11,7 +11,11 @@ services:
 
   frontend:
     build:
-      context: ./frontend_files
+      context: ./frontend
+    environment:
+      BACKEND_URL: http://host.docker.internal:7860
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     ports:
       - "8501:8501"
     depends_on:

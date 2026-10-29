@@ -1,3 +1,4 @@
+# Docker Compose setup to run the backend and frontend containers together
 version: '3.8'
 
 services:
